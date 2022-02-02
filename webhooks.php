@@ -46,7 +46,7 @@ if (!is_null($events['events'])) {
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => '@jade test'
+                    'text' => json_encode($event)
                 ];
 
 
