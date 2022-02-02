@@ -20,11 +20,19 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => json_encode($event)
-			];
+
+			//get user in group
+            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('<channel access token>');
+            $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '<channel secret>']);
+            $response = $bot->getGroupMemberIds($event['source']['groupId'], $access_token);
+
+
+            // Build message to reply back
+            $messages = [
+                'type' => 'text',
+                'text' => json_encode($response)
+            ];
+
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
