@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => '{@U9c376bf2b6571b7fb2158d2806838c53}'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
