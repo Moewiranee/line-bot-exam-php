@@ -26,6 +26,15 @@ if (!is_null($events['events'])) {
                     'type' => 'text',
                     'text' => $ReplyText
                 ];
+            }else{
+                // Get text sent
+                $ReplyText = json_encode($event);
+
+                // Build message to reply back
+                $messages = [
+                    'type' => 'text',
+                    'text' => $ReplyText
+                ];
             }
 //
             if( $event['message']['text'] == "ประกาศ") {
@@ -37,15 +46,6 @@ if (!is_null($events['events'])) {
                 $messages = [
                     'type' => 'text',
                     'text' => '@m Jade userId',
-                    'mention' => [
-                        'mentionees' => [
-                            [
-                                "index" => 0,
-                                "length" => 7,
-                                "userId" => "Uafcb608372c680b362aa4c6ff53d75ad"
-                            ]
-                        ]
-                    ]
                 ];
             }
 
