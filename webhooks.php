@@ -16,29 +16,38 @@ if (!is_null($events['events'])) {
         // Reply only when message sent is in 'text' format
         if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
             $ReplyText = "";
-            if( $event['message']['text'] == "UserID") {
+//            if( $event['message']['text'] == "UserID") {
+//
+//                // Get text sent
+//                $ReplyText = $event['source']['userId'];
+//
+//                // Build message to reply back
+//                $messages = [
+//                    'type' => 'text',
+//                    'text' => $ReplyText
+//                ];
+//            }
+//
+//            if( $event['message']['text'] == "ประกาศ") {
+//
+//                // Get text sent
+//                $ReplyText = $event['source']['userId'];
+//
+//                // Build message to reply back
+//                $messages = [
+//                    'type' => 'text',
+//                    'text' => '{@'.$event['source']['userId'].'}'
+//                ];
+//            }
 
-                // Get text sent
+//             Get text sent
                 $ReplyText = $event['source']['userId'];
 
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => $ReplyText
+                    'text' => json_encode($event)
                 ];
-            }
-
-            if( $event['message']['text'] == "ประกาศ") {
-
-                // Get text sent
-                $ReplyText = $event['source']['userId'];
-
-                // Build message to reply back
-                $messages = [
-                    'type' => 'text',
-                    'text' => '@'.$event['source']['userId']
-                ];
-            }
 
 
             if($ReplyText != "") {
