@@ -28,6 +28,18 @@ if (!is_null($events['events'])) {
                 ];
             }
 
+            if( $event['message']['text'] == "ประกาศ") {
+
+                // Get text sent
+                $ReplyText = $event['source']['userId'];
+
+                // Build message to reply back
+                $messages = [
+                    'type' => 'text',
+                    'text' => '@'.$event['source']['userId']
+                ];
+            }
+
 
             if($ReplyText != "") {
                 // Get replyToken
