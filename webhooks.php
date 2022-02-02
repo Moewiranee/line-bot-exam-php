@@ -26,18 +26,7 @@ if (!is_null($events['events'])) {
                     'type' => 'text',
                     'text' => $ReplyText
                 ];
-            }else{
-                // Get text sent
-                $ReplyText = json_encode($event);
-
-                // Build message to reply back
-                $messages = [
-                    'type' => 'text',
-                    'text' => $ReplyText
-                ];
-            }
-//
-            if( $event['message']['text'] == "ประกาศ") {
+            }elseif( $event['message']['text'] == "ประกาศ") {
 
                 // Get text sent
                 $ReplyText = $event['source']['userId'];
@@ -45,7 +34,16 @@ if (!is_null($events['events'])) {
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => '@m Jade userId',
+                    'text' => 'ประกาศ',
+                ];
+            }elseif(strpos($event['message']['text'], 'log') !== false){
+                // Get text sent
+                $ReplyText = json_encode($event);
+
+                // Build message to reply back
+                $messages = [
+                    'type' => 'text',
+                    'text' => $ReplyText
                 ];
             }
 
