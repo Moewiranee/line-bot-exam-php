@@ -11,22 +11,27 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+    // Loop through each event
+    foreach ($events['events'] as $event) {
+        // Reply only when message sent is in 'text' format
+        if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+            $ReplyText = "";
             if( $event['message']['type'] == "UserID") {
 
                 // Get text sent
-                $text = $event['source']['userId'];
-                // Get replyToken
-                $replyToken = $event['replyToken'];
+                $ReplyText = $event['source']['userId'];
 
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => $text
+                    'text' => $ReplyText
                 ];
+            }
+
+
+            if($ReplyText != "") {
+                // Get replyToken
+                $replyToken = $event['replyToken'];
 
                 // Make a POST Request to Messaging API to reply to sender
                 $url = 'https://api.line.me/v2/bot/message/reply';
@@ -48,7 +53,7 @@ if (!is_null($events['events'])) {
 
                 echo $result . "\r\n";
             }
-		}
-	}
+        }
+    }
 }
 echo "OK";
