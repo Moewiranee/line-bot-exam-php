@@ -28,26 +28,26 @@ if (!is_null($events['events'])) {
                 ];
             }
 //
-//            if( $event['message']['text'] == "ประกาศ") {
-//
-//                // Get text sent
-//                $ReplyText = $event['source']['userId'];
-//
-//                // Build message to reply back
-//                $messages = [
-//                    'type' => 'text',
-//                    'text' => '{@'.$event['source']['userId'].'}'
-//                ];
-//            }
+            if( $event['message']['text'] == "ประกาศ") {
 
-//             Get text sent
+                // Get text sent
                 $ReplyText = $event['source']['userId'];
 
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => json_encode($event)
+                    'text' => '{@'.$event['source']['userId'].'}'
                 ];
+            }
+
+//             Get text sent
+//                $ReplyText = $event['source']['userId'];
+//
+//                // Build message to reply back
+//                $messages = [
+//                    'type' => 'text',
+//                    'text' => json_encode($event)
+//                ];
 
 
             if($ReplyText != "") {
