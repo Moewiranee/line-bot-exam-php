@@ -38,10 +38,12 @@ if (!is_null($events['events'])) {
                     'type' => 'text',
                     'text' => '@m Jade userId',
                     'mention' => [
-                        [
-                            "index" => 0,
-                            "length" => 7,
-                            "userId" => "Uafcb608372c680b362aa4c6ff53d75ad"
+                        'mentionees' => [
+                            [
+                                "index" => 0,
+                                "length" => 7,
+                                "userId" => "Uafcb608372c680b362aa4c6ff53d75ad"
+                            ]
                         ]
                     ]
                 ];
