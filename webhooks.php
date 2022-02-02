@@ -36,7 +36,14 @@ if (!is_null($events['events'])) {
                 // Build message to reply back
                 $messages = [
                     'type' => 'text',
-                    'text' => '{@'.$event['source']['userId'].'}'
+                    'text' => '@m Jade userId',
+                    'mention' => [
+                        [
+                            "index" => 0,
+                            "length" => 7,
+                            "userId" => "Uafcb608372c680b362aa4c6ff53d75ad"
+                        ]
+                    ]
                 ];
             }
 
